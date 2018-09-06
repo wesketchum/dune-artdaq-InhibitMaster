@@ -52,7 +52,7 @@ class StatusSUBNode:
     def connect(self,address):
         self.socket.connect(str(address))
 
-    def recv_status_msg_timeout(self,timeout=0.5): #timeout in seconds
+    def recv_status_msg_timeout(self,timeout=0.5,sleep_after_no_update=0.005): #timeout in seconds
         timeinit = datetime.datetime.now()
         timenow = timeinit
         diff = timenow - timeinit
@@ -63,6 +63,7 @@ class StatusSUBNode:
             except zmq.ZMQError:
                 timenow = datetime.datetime.now()
                 diff = timenow - timeinit
+                time.sleep(sleep_after_no_update)
         return "TIMEOUT"
 
 class StatusPUBNode:

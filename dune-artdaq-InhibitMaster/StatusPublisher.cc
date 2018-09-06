@@ -33,6 +33,9 @@ artdaq::StatusPublisher::StatusPublisher(std::string name,
   fZMQContextPtr = zmq_ctx_new ();
   fZMQPublisherPtr = zmq_socket (fZMQContextPtr, ZMQ_PUB);
 
+  int hwm=1;
+  zmq_setsockopt(fZMQPublisherPtr,ZMQ_SNDHWM,&hwm,sizeof(int));
+
   TRACEN(fTRACE_NAME,fTRACELVL,
 	 "Instantiated StatusPublisher: %s at %s",
 	 fProcessName.c_str(),fPublisherAddress.c_str());

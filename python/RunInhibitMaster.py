@@ -24,6 +24,6 @@ for line in node_list_file:
     print "Adding status publisher %s with socket %s" % (myline[0],myline[1])
     subscriber.connect(myline[1])
 
-im = InhibitMaster.InhibitMaster(0.5)
+im = InhibitMaster.InhibitMaster(0.5,0.005)
 
 im.run(subscriber,publisher)

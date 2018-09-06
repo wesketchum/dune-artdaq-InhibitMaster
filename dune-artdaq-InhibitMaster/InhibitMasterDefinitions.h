@@ -6,10 +6,10 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-const char* STATUS_MSG_MARKER  = "STATUSMSG";
-const char* INHIBIT_MSG_MARKER = "INHIBITMSG";
+extern const char* STATUS_MSG_MARKER;//  = "STATUSMSG";
+extern const char* INHIBIT_MSG_MARKER;// = "INHIBITMSG";
 
-const char* STATUS_BAD  = "BAD";
-const char* STATUS_GOOD = "GOOD";
+extern const char* STATUS_BAD;//  = "BAD";
+extern const char* STATUS_GOOD;// = "GOOD";
 
 #endif
